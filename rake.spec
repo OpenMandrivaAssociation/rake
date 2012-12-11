@@ -1,12 +1,13 @@
 Name:		rake
 Summary:	Rake is a simple ruby build program with capabilities similar to make
 Version:	0.8.7
-Release:	3
+Release:	%mkrel 2
 License:	MIT
 Group:		Development/Ruby
 Source:		http://rubyforge.org/frs/download.php/56872/%{name}-%{version}.tgz
 URL:		http://rubyforge.org/projects/rake/
 BuildRequires:	zip, ruby 
+BuildRoot:	%_tmppath/%{name}-%{version}-buildroot
 
 %description
 Rake is a build tool similar to the make program in many ways. But
@@ -19,6 +20,7 @@ scripting language built right into your build tool.
 %setup -q -n %{name}-%{version}
 
 %install
+rm -rf %{buildroot}
 mkdir -p %{buildroot}%{ruby_sitelibdir}/rake
 mkdir -p %{buildroot}%{_bindir}/
 mkdir -p %{buildroot}%{_mandir}/man1/
@@ -32,4 +34,18 @@ mv doc/rake.1.gz %{buildroot}%{_mandir}/man1/
 %{_bindir}/
 %{_mandir}/man1/rake.1.*
 %doc README TODO MIT-LICENSE CHANGES
+
+%clean
+rm -rf %{buildroot}
+
+
+%changelog
+* Mon Jun 13 2011 Sandro Cazzaniga <kharec@mandriva.org> 0.8.7-2mdv2011.0
++ Revision: 684965
+- correct URL and minor changes in spec
+
+* Mon Jun 13 2011 Leonardo Coelho <leonardoc@mandriva.com> 0.8.7-1
++ Revision: 684959
+- first mandriva version
+- Created package structure for rake.
 
