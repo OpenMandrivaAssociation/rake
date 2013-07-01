@@ -1,5 +1,5 @@
 Name:		rake
-Summary:	Rake is a simple ruby build program with capabilities similar to make
+Summary:	Simple ruby build program with capabilities similar to make
 Version:	0.8.7
 Release:	%mkrel 2
 License:	MIT
