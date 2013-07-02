@@ -1,13 +1,12 @@
 Name:		rake
 Summary:	Simple ruby build program with capabilities similar to make
 Version:	0.8.7
-Release:	%mkrel 2
+Release:	3
 License:	MIT
 Group:		Development/Ruby
 Source:		http://rubyforge.org/frs/download.php/56872/%{name}-%{version}.tgz
 URL:		http://rubyforge.org/projects/rake/
 BuildRequires:	zip, ruby 
-BuildRoot:	%_tmppath/%{name}-%{version}-buildroot
 
 %description
 Rake is a build tool similar to the make program in many ways. But
@@ -20,7 +19,6 @@ scripting language built right into your build tool.
 %setup -q -n %{name}-%{version}
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{ruby_sitelibdir}/rake
 mkdir -p %{buildroot}%{_bindir}/
 mkdir -p %{buildroot}%{_mandir}/man1/
@@ -36,7 +34,6 @@ mv doc/rake.1.gz %{buildroot}%{_mandir}/man1/
 %doc README TODO MIT-LICENSE CHANGES
 
 %clean
-rm -rf %{buildroot}
 
 
 %changelog
