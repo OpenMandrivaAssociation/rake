@@ -29,7 +29,7 @@ mv doc/rake.1.gz %{buildroot}%{_mandir}/man1/
 %files
 %defattr(0755,root,root)
 %{ruby_sitelibdir}/rake/
-%{_bindir}/
+%{_bindir}/*
 %{_mandir}/man1/rake.1.*
 %doc README TODO MIT-LICENSE CHANGES
 
