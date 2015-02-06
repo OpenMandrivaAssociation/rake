@@ -1,7 +1,7 @@
 Name:		rake
 Summary:	Simple ruby build program with capabilities similar to make
 Version:	0.8.7
-Release:	3
+Release:	4
 License:	MIT
 Group:		Development/Ruby
 Source:		http://rubyforge.org/frs/download.php/56872/%{name}-%{version}.tgz
