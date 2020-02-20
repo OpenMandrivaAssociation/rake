@@ -1,10 +1,11 @@
+%define gem_name %{name}
 Name:		rake
 Summary:	Simple ruby build program with capabilities similar to make
-Version:	0.8.7
-Release:	4
+Version:	13.0.1
+Release:	1
 License:	MIT
 Group:		Development/Ruby
-Source:		http://rubyforge.org/frs/download.php/56872/%{name}-%{version}.tgz
+Source:		http://rubyforge.org/frs/download.php/56872/%{name}-%{version}.gem
 URL:		http://rubyforge.org/projects/rake/
 BuildRequires:	zip, ruby 
 
@@ -17,6 +18,12 @@ scripting language built right into your build tool.
 
 %prep
 %setup -q -n %{name}-%{version}
+#gzip doc/rake.1
+
+%build
+gem build ../%{gem_name}-%{version}.gemspec
+%gem_install
+
 
 %install
 mkdir -p %{buildroot}%{ruby_sitelibdir}/rake
@@ -24,14 +31,15 @@ mkdir -p %{buildroot}%{_bindir}/
 mkdir -p %{buildroot}%{_mandir}/man1/
 mv lib/rake/* %{buildroot}%{ruby_sitelibdir}/rake/
 mv bin/* %{buildroot}%{_bindir}/
-mv doc/rake.1.gz %{buildroot}%{_mandir}/man1/
+mv doc/rake.1 %{buildroot}%{_mandir}/man1/
+gzip /%{buildroot}%{_mandir}/man1/rake.1
 
 %files
 %defattr(0755,root,root)
 %{ruby_sitelibdir}/rake/
 %{_bindir}/*
 %{_mandir}/man1/rake.1.*
-%doc README TODO MIT-LICENSE CHANGES
+%doc README.rdoc  MIT-LICENSE 
 
 %clean
 
