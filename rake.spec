@@ -7,7 +7,9 @@ License:	MIT
 Group:		Development/Ruby
 Source:		http://rubyforge.org/frs/download.php/56872/%{name}-%{version}.gem
 URL:		http://rubyforge.org/projects/rake/
-BuildRequires:	zip, ruby 
+BuildRequires:	gzip 
+BuildRequires:	ruby
+BuildRequires:  rubygems-devel
 
 %description
 Rake is a build tool similar to the make program in many ways. But
