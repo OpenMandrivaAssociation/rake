@@ -6,7 +6,7 @@ Release:	1
 License:	MIT
 Group:		Development/Ruby
 Source:		http://rubyforge.org/frs/download.php/56872/%{name}-%{version}.gem
-URL:		http://rubyforge.org/projects/rake/
+URL:		https://rubyforge.org/projects/rake/
 BuildRequires:	gzip 
 BuildRequires:	ruby
 BuildRequires:  rubygems-devel
